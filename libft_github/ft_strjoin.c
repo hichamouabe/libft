@@ -6,7 +6,7 @@
 /*   By: houabell <houabell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 14:14:47 by houabell          #+#    #+#             */
-/*   Updated: 2024/11/12 16:57:12 by houabell         ###   ########.fr       */
+/*   Updated: 2024/11/12 21:44:49 by houabell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,12 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*result;
-
-	if (s1 == NULL || s2 == NULL)
+	if (s1 == NULL && s2 == NULL)
 		return (NULL);
+	if (s1 == NULL)
+		return (ft_strdup(s2));
+	if (s2 == NULL)
+		return (ft_strdup(s1));
 	result = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (result == NULL)
 		return (NULL);
