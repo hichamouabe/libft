@@ -6,7 +6,7 @@
 /*   By: houabell <houabell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 16:35:03 by houabell          #+#    #+#             */
-/*   Updated: 2024/11/11 18:04:22 by houabell         ###   ########.fr       */
+/*   Updated: 2024/11/14 21:29:18 by houabell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	size_t	j;
 
 	i = 0;
+	if (haystack == NULL && len == 0 && needle)
+		return (NULL);
 	if (!*needle)
 		return ((char *)haystack);
 	while (haystack[i])
