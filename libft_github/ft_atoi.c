@@ -6,7 +6,7 @@
 /*   By: houabell <houabell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 16:08:56 by houabell          #+#    #+#             */
-/*   Updated: 2024/11/09 16:09:35 by houabell         ###   ########.fr       */
+/*   Updated: 2024/11/14 03:23:18 by houabell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@ static int	ft_handled(const char *str, int sign)
 	max = LONG_MAX / 10;
 	while (*str && (*str >= '0' && *str <= '9'))
 	{
-		result = result * 10 + (*str - '0');
-		if (result >= max)
-		{
-			if (sign == -1)
-				return (0);
+		if ((result > max || (result == max && *str - '0' > 7)) && sign == 1)
 			return (-1);
-		}
+		if ((result > max || (result == max && *str - '0' > 8)) && sign == -1)
+			return (0);
+		result = result * 10 + (*str - '0');
 		str++;
 	}
 	return ((int)result * sign);
